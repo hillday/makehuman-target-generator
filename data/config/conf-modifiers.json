@@ -1,0 +1,51 @@
+[
+  { "group": "head",
+    "modifiers": [
+      {"target": "head-angle", "min": "in", "max": "out"},
+      {"target": "head", "min": "skinny", "max": "fat"},
+      {"target": "head-oval"},
+      {"target": "head-round"},
+      {"target": "head-rectangular"},
+      {"target": "head-square"},
+      {"target": "head-triangular"},
+      {"target": "head-invertedtriangular"},
+      {"target": "head-diamond"},
+
+      {"target": "head-scale-depth", "min": "less", "max": "more"},
+      {"target": "head-scale-horiz", "min": "less", "max": "more"},
+      {"target": "head-scale-vert", "min": "less", "max": "more"},
+      {"target": "head-trans", "min": "in", "max": "out"},
+      {"target": "head-trans", "min": "down", "max": "up"},
+      {"target": "head-trans", "min": "backward", "max": "forward"},
+      {"target": "head-back-scale-depth", "min": "less", "max": "more"}
+    ]
+  },
+
+  { "group": "nose",
+    "modifiers": [
+      {"target": "nose-trans-vert", "min": "down", "max": "up"},
+      {"target": "nose-trans-depth", "min": "backward", "max": "forward"},
+      {"target": "nose-trans-horiz", "min": "in", "max": "out"},
+      {"target": "nose-scale-vert", "min": "decr", "max": "incr"},
+      {"target": "nose-scale-horiz", "min": "decr", "max": "incr"},
+      {"target": "nose-scale-depth", "min": "decr", "max": "incr"},
+
+      {"target": "nose-nostril-width", "min": "min", "max": "max"},
+      {"target": "nose-point-width", "min": "less", "max": "more"},
+      {"target": "nose-height", "min": "min", "max": "max"},
+      {"target": "nose-width1", "min": "min", "max": "max"},
+      {"target": "nose-width2", "min": "min", "max": "max"},
+      {"target": "nose-width3", "min": "min", "max": "max"},
+
+      {"target": "nose-compression", "min": "compress", "max": "uncompress"},
+      {"target": "nose-curve", "min": "concave", "max": "convex"},
+      {"target": "nose-greek", "min": "lessgreek", "max": "moregreek"},
+      {"target": "nose-hump", "min": "lesshump", "max": "morehump"},
+      {"target": "nose-volume", "min": "potato", "max": "point"},
+      {"target": "nose-nostrils-angle", "min": "down", "max": "up"},
+      {"target": "nose-point", "min": "down", "max": "up"},
+      {"target": "nose-septumangle", "min": "decr", "max": "incr"},
+      {"target": "nose-flaring", "min": "decr", "max": "incr"}
+    ]
+  }
+]
