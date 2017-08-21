@@ -34,16 +34,32 @@ public class TargetBinFilter {
 
         this.shortSize = i * 19158 * 3;
     }
+    
+    private Target getTargetByPath(String path){
+    	Target target = null;
+    	
+    	for(int i = 0; i < this.targets.size(); i++){
+    		if(this.targets.get(i).getPath().equalsIgnoreCase(path)){
+    			target = this.targets.get(i);
+    			break;
+    		}
+    			
+    	}
+    	
+    	return target;
+    }
 
     public short[] filter() {
         short[] targetShorts = new short[this.shortSize];
         int si = 0;
-        for (int i = 0; i < this.targets.size(); i++){
-            if(this.targetsKeys.contains(this.targets.get(i).getPath())){
-               for(int j = 0; j < this.targets.get(i).getTargetData().length; j++){
-                   targetShorts[si] = this.targets.get(i).getTargetData()[j];
-                   si++;
-               }
+        
+        for(int i = 0; i < this.targetsKeys.size(); i++){
+        	Target target = this.getTargetByPath(this.targetsKeys.get(i));
+        	if(target == null)
+        		continue;
+        	for(int j = 0; j < target.getTargetData().length; j++){
+                targetShorts[si] = target.getTargetData()[j];
+                si++;
             }
         }
 

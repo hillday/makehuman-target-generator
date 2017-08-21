@@ -28,8 +28,9 @@ public class ModelModiferFilter extends ModifierFilter {
            JSONArray modifierObjs = ob.getJSONArray("modifiers");
             Iterator<Object> mdIts = modifierObjs.iterator();
 
-            while (mdIts.hasNext()) {
-                JSONObject mdObj = (JSONObject) mdIts.next();
+            List<JSONObject> removeJsonMdObjs = new ArrayList<JSONObject>();
+            for(int j = 0; j < modifierObjs.size(); j++){
+                JSONObject mdObj = modifierObjs.getJSONObject(j);
                 String target = mdObj.getString("target");
                 String targetMin = "";
                 String targetMax = "";
@@ -43,9 +44,11 @@ public class ModelModiferFilter extends ModifierFilter {
                 }
 
                 if (!this.configModifiers.contains(key)) {
-                    modifierObjs.remove(mdObj);
+                	removeJsonMdObjs.add(mdObj);
                 }
             }
+            
+            modifierObjs.removeAll(removeJsonMdObjs);
 
         }
 

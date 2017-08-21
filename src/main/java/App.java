@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class App {
     //data dir
-    public static String DATA_PATH = "D:/project/intelliJ_workskpace/makehuman/data/";
+    public static String DATA_PATH = "E:/project/makehuman/makehuman-target-generator-master/data/";
 
     //source target data
     public static String SOURCE_TARGET_LIST = DATA_PATH + "source/target-list.json";
@@ -76,9 +76,11 @@ public class App {
             try {
 
                 String key = keys.next().toString();
+                //System.out.println("idex"+targetIdx+"  "+key);
                 short[] tgtarget = getTargetShorts(shorts,targetIdx);
 
                 Target target = new Target(key,tgtarget);
+                targets.add(target);
                 targetIdx++;
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -97,13 +99,21 @@ public class App {
        while (i < inBinBytes.length/2){
            byte[] tmpBytes = {inBinBytes[i*2],inBinBytes[(i*2)+1]};
            shorts[i] = StreamTool.byteToShort(tmpBytes);
+        
+           /*if(shorts[i] != 0 && i >= 19158*3*17 && i < 19158*3*18){
+				System.out.println("index "+i+"  "+shorts[i]);
+			}*/
+           
            i++;
        }
+       
+       
 
        System.out.println("begin gen target meta and customize bin...");
         List<Target> targets =  parseToTargets(shorts,SOURCE_TARGET_LIST);
        ModifierFilter targetMetaFilter = new TargerListFilter(CONFIG_MODIFIER_FILE,SOURCE_TARGET_LIST,TARGET_TARGET_LIST);
         targetMetaFilter.filter();
+      
 
         TargetBinFilter targetBinFilter = new TargetBinFilter(targetMetaFilter.getTargetContent(),targets);
         short[] outputTargetShorts = targetBinFilter.filter();
