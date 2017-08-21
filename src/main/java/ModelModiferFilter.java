@@ -31,6 +31,9 @@ public class ModelModiferFilter extends ModifierFilter {
             List<JSONObject> removeJsonMdObjs = new ArrayList<JSONObject>();
             for(int j = 0; j < modifierObjs.size(); j++){
                 JSONObject mdObj = modifierObjs.getJSONObject(j);
+
+                if(!mdObj.has("target"))
+                    continue;
                 String target = mdObj.getString("target");
                 String targetMin = "";
                 String targetMax = "";

@@ -1,5 +1,8 @@
+import java.io.Serializable;
 
-public class Target {
+public class Target implements Serializable {
+    private static final  long  serialVersionUID = 1L;
+
     private String path;
     private short[] targetData;
 

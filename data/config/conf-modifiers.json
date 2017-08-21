@@ -1,6 +1,7 @@
 [
   { "group": "head",
     "modifiers": [
+      {"target": "head-age", "min": "less", "max": "more"},
       {"target": "head-angle", "min": "in", "max": "out"},
       {"target": "head", "min": "skinny", "max": "fat"},
       {"target": "head-oval"},
@@ -18,6 +19,15 @@
       {"target": "head-trans", "min": "down", "max": "up"},
       {"target": "head-trans", "min": "backward", "max": "forward"},
       {"target": "head-back-scale-depth", "min": "less", "max": "more"}
+    ]
+  },
+
+  { "group": "forehead",
+    "modifiers": [
+      {"target": "forehead-trans-depth", "min": "forward", "max": "backward"},
+      {"target": "forehead-scale-vert", "min": "less", "max": "more"},
+      {"target": "forehead-nubian", "min": "less", "max": "more"},
+      {"target": "forehead-temple", "min": "in", "max": "out"}
     ]
   },
 

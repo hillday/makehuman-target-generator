@@ -49,6 +49,8 @@ public abstract class ModifierFilter {
 
             while (mdIts.hasNext()) {
                 JSONObject mdObj = (JSONObject) mdIts.next();
+                if(!mdObj.has("target"))
+                    continue;
                 String target = mdObj.getString("target");
                 String targetMin =  "";
                 String targetMax = "";
