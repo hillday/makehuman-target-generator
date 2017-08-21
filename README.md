@@ -1,6 +1,6 @@
 # makehuman-target-generator
 a tool for makehuman https://github.com/makehuman-js/makehuman-js 
-is use to generation customizer tartget.bin and realtion meta configure
+is use to generation customizer tartget.bin and relation meta configure
 
 # Usage
 1. build with maven in idea or eclipse.
