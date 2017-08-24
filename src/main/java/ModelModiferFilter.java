@@ -32,22 +32,30 @@ public class ModelModiferFilter extends ModifierFilter {
             for(int j = 0; j < modifierObjs.size(); j++){
                 JSONObject mdObj = modifierObjs.getJSONObject(j);
 
-                if(!mdObj.has("target"))
-                    continue;
-                String target = mdObj.getString("target");
-                String targetMin = "";
-                String targetMax = "";
-                if (mdObj.has("min"))
-                    targetMin = mdObj.getString("min");
-                if (mdObj.has("max"))
-                    targetMax = mdObj.getString("max");
-                String key = group + "/" + target;
-                if (!targetMin.equals("") && !targetMax.equals("")) {
-                    key = key + "-" + targetMin + "|" + targetMax;
+                String key = "";
+                if(mdObj.has("target")) {
+                    String target = mdObj.getString("target");
+                    String targetMin = "";
+                    String targetMax = "";
+                    if (mdObj.has("min"))
+                        targetMin = mdObj.getString("min");
+                    if (mdObj.has("max"))
+                        targetMax = mdObj.getString("max");
+                     key = group + "/" + target;
+                    if (!targetMin.equals("") && !targetMax.equals("")) {
+                        key = key + "-" + targetMin + "|" + targetMax;
+                    }
+
+                    if (!this.configModifiers.contains(key)) {
+                        removeJsonMdObjs.add(mdObj);
+                    }
+                }else if(mdObj.has("macrovar")){
+                    String target = mdObj.getString("macrovar");
+                    key = group + "/" + target;
                 }
 
                 if (!this.configModifiers.contains(key)) {
-                	removeJsonMdObjs.add(mdObj);
+                    removeJsonMdObjs.add(mdObj);
                 }
             }
             

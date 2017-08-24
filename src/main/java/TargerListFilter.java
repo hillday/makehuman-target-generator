@@ -25,6 +25,19 @@ public class TargerListFilter extends ModifierFilter {
         this.write();
     }
 
+    private int getCharCountInString(String s,String d){
+        int count = 0;
+
+        for(int i=0;i<=s.length()-1;i++) {
+            String subString=s.substring(i,i+1);
+            if(subString.equals(d)){
+                count++;
+            }
+        }
+
+        return count;
+    }
+
     private void filterObjByTag(JSONObject obj,String tag){
         JSONObject groupObj = obj.getJSONObject(tag);
 
@@ -35,8 +48,8 @@ public class TargerListFilter extends ModifierFilter {
             String key = keys.next().toString();
             String value = groupObj.optString(key);
 
-            for(String tkey : this.configTargetKeys) {
-                if (key.indexOf(tkey) != -1) {
+            for(String configTarget : this.configTargetKeys) {
+                if (key.indexOf(configTarget) != -1) {
                     addKeys.put(key, value);
                     continue;
                 }

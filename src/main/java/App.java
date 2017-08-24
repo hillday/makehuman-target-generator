@@ -127,6 +127,7 @@ public class App {
 
         System.out.println("begin gen target meta and customize bin...");
         List<Target> targets = parseToTargets(shorts, SOURCE_TARGET_LIST);
+        Collections.sort(targets);
         ModifierFilter targetMetaFilter = new TargerListFilter(CONFIG_MODIFIER_FILE, SOURCE_TARGET_LIST, TARGET_TARGET_LIST);
         targetMetaFilter.filter();
 

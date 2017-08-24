@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public class Target implements Serializable {
+public class Target implements Serializable,Comparable{
     private static final  long  serialVersionUID = 1L;
 
     private String path;
@@ -29,5 +29,14 @@ public class Target implements Serializable {
 
     public void setTargetData(short[] targetData) {
         this.targetData = targetData;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+
+        Target targetObj = (Target)o;
+        String otherPath = targetObj.getPath();
+
+        return this.path.compareTo(otherPath);
     }
 }

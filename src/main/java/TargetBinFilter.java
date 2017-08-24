@@ -2,6 +2,7 @@
 import net.sf.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -52,7 +53,7 @@ public class TargetBinFilter {
     public short[] filter() {
         short[] targetShorts = new short[this.shortSize];
         int si = 0;
-        
+        Collections.sort(this.targetsKeys);
         for(int i = 0; i < this.targetsKeys.size(); i++){
         	Target target = this.getTargetByPath(this.targetsKeys.get(i));
         	if(target == null)
