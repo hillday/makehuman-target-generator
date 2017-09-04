@@ -54,10 +54,12 @@ public class TargetBinFilter {
         short[] targetShorts = new short[this.shortSize];
         int si = 0;
         Collections.sort(this.targetsKeys);
+        System.out.println("begin to parse targets....");
         for(int i = 0; i < this.targetsKeys.size(); i++){
         	Target target = this.getTargetByPath(this.targetsKeys.get(i));
         	if(target == null)
         		continue;
+        	System.out.println(target.getPath());
         	for(int j = 0; j < target.getTargetData().length; j++){
                 targetShorts[si] = target.getTargetData()[j];
                 si++;

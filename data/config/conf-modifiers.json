@@ -70,16 +70,6 @@
       {"target": "l-cheek-volume", "min": "deflate", "max": "inflate"},
       {"target": "r-cheek-volume", "min": "deflate", "max": "inflate"}
     ]
-  },
-
-  { "group": "macrodetails",
-    "modifiers": [
-      {"macrovar": "Gender"},
-      {"macrovar": "Age"},
-      {"macrovar": "African", "modifierType": "EthnicModifier"},
-      {"macrovar": "Asian", "modifierType": "EthnicModifier"},
-      {"macrovar": "Caucasian", "modifierType": "EthnicModifier"}
-    ]
   }
 
 ]
